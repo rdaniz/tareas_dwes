@@ -7,7 +7,7 @@ class Tarea(models.Model):
     titulo = models.CharField(max_length=50)
     descripcion = models.TextField()
     completada = models.BooleanField(default=False)
-    fecha_creacion = models.DateField(auto_now=True)
+    fecha_creacion = models.DateTimeField(auto_now=True)
     fecha_recordatorio = models.DateTimeField(auto_now=False, auto_now_add=False)
 
     def __str__(self):
