@@ -56,7 +56,7 @@ ROOT_URLCONF = 'tareas_dwes.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "tareas_dwes" / "templates"],  # Carpeta con template global
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
