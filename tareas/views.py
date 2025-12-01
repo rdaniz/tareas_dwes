@@ -1,6 +1,7 @@
-from gc import get_objects
+# from gc import get_objects
+# from django.shortcuts import render
 from django.http import Http404
-from django.shortcuts import render
+from django.views.generic import DetailView
 from .models import Tarea
 
 # Lista de objetos Tarea (NO guardados en BBDD)
@@ -33,14 +34,19 @@ from .models import Tarea
 #]
 
 # Create your views here.
-def detalle_tarea_view(request, tarea_id):
+# def detalle_tarea_view(request, tarea_id):
     # Buscar la tarea por id
-    try:
-        tarea = Tarea.objects.get(id=tarea_id)
-    except Tarea.DoesNotExist:
-        raise Http404('Tarea no encontrada')
+#    try:
+#        tarea = Tarea.objects.get(id=tarea_id)
+#    except Tarea.DoesNotExist:
+#        raise Http404('Tarea no encontrada')
     # 3 argumentos render(request, template_name, context)
     # Objeto que Django pasa a la vista
     # Nombre de la template
     # Diccionario ({clave:valor})
-    return render(request, 'detalle_tarea.html', {'tarea': tarea})
+#    return render(request, 'detalle_tarea.html', {'tarea': tarea})
+
+class DetalleTareaView(DetailView):
+    model = Tarea
+    template_name = 'detalle_tarea.html'
+    context_object_name = 'tarea'
